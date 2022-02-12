@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		304A1D1427B8377000068154 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 304A1D1327B8377000068154 /* SwiftyJSON */; };
 		30DA043B27943AEF008EB92B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DA043A27943AEF008EB92B /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304A1D1427B8377000068154 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +80,9 @@
 			dependencies = (
 			);
 			name = HandlingJSON;
+			packageProductDependencies = (
+				304A1D1327B8377000068154 /* SwiftyJSON */,
+			);
 			productName = HandlingJSON;
 			productReference = 30DA043727943AEF008EB92B /* HandlingJSON */;
 			productType = "com.apple.product-type.tool";
@@ -106,6 +111,9 @@
 				Base,
 			);
 			mainGroup = 30DA042E27943AEF008EB92B;
+			packageReferences = (
+				304A1D1227B8377000068154 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 30DA043827943AEF008EB92B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,6 +294,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		304A1D1227B8377000068154 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		304A1D1327B8377000068154 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 304A1D1227B8377000068154 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 30DA042F27943AEF008EB92B /* Project object */;
 }
