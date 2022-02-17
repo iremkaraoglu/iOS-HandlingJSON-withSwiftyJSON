@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 let pokemon = PokemonManager()
 pokemon.fetchData()
@@ -28,24 +29,23 @@ struct PokemonManager {
             let task = session.dataTask(with: url) {(data, response, error) in
                 
                 if error != nil {
-                    // it there is an error we return early so we need to notify our task is complete
+                    // if there is an error we return early so we need to notify our task is complete
                     print(error!)
                     group.leave()
                     return
                 }
                 
                 if let safeData = data {
-                    print("safeData", safeData)
-                    if let result = self.parseJSON(pokemonData: safeData) {
-                        print(result.name)
-                    }
+                    getName(data: safeData)
+                    getAbilities(data: safeData)
+                    getType(data: safeData)
                 }
                 // notify that task is complete
                 group.leave()
                 
                 
             }
-            // dont forget to start the task
+            // don't forget to start the task
             task.resume()
         }else{
             group.leave()
@@ -53,12 +53,40 @@ struct PokemonManager {
         }
     }
     
+    // Get name of the Pokemon with SwiftyJSON
+    func getName(data: Data) {
+        let json = try! JSON(data: data)
+        let name = json["name"].string ?? "N/A"
+        print("Name: \(name)")
+    }
+    
+    // Get abilities of the Pokemon with SwiftyJSON
+    func getAbilities(data: Data) {
+        let json = try! JSON(data: data)
+        for (_, abilities) in json["abilities"] {
+            let ability = abilities["ability"]["name"].string ?? "N/A"
+            print("Ability: \(ability)")
+        }
+    }
+    
+    // Get type of the Pokemon with SwiftyJSON
+    func getType(data: Data) {
+        let json = try! JSON(data: data)
+        for (_, types) in json["types"] {
+            let type = types["type"]["name"].string ?? "N/A"
+            print("Type: \(type)")
+        }
+    }
+    
+    
+    
+    
+    
     func parseJSON(pokemonData: Data) -> Charmander? {
         let decoder = JSONDecoder()
         
         do {
             let decodedData = try decoder.decode(Charmander.self, from: pokemonData)
-            print("decodedData", decodedData)
             return decodedData
         } catch {
             print(error)
