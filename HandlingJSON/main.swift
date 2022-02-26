@@ -36,6 +36,15 @@ struct PokemonManager {
                 }
                 
                 if let safeData = data {
+                    // Call functions with JSONDecoder
+                    print("Outputs with JSONDecoder")
+                    let charmander = parseJSON(pokemonData: safeData)!
+                    print("Name: \(charmander.name)")
+                    print("Ability: \(charmander.abilities)")
+                    print("Type: \(charmander.types)")
+                    
+                    // Call functions with SwiftyJSON
+                    print("Outputs with SwiftyJSON")
                     getName(data: safeData)
                     getAbilities(data: safeData)
                     getType(data: safeData)
@@ -52,7 +61,21 @@ struct PokemonManager {
             
         }
     }
+
     
+    func parseJSON(pokemonData: Data) -> Charmander? {
+        let decoder = JSONDecoder()
+        
+        do {
+            let decodedData = try decoder.decode(Charmander.self, from: pokemonData)
+            return decodedData
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+    
+    //MARK: - Handle with SwiftyJSON
     // Get name of the Pokemon with SwiftyJSON
     func getName(data: Data) {
         let json = try! JSON(data: data)
@@ -80,23 +103,31 @@ struct PokemonManager {
     
     
     
-    
-    
-    func parseJSON(pokemonData: Data) -> Charmander? {
-        let decoder = JSONDecoder()
-        
-        do {
-            let decodedData = try decoder.decode(Charmander.self, from: pokemonData)
-            return decodedData
-        } catch {
-            print(error)
-        }
-        return nil
-    }
-    
 }
 
 
 struct Charmander: Codable {
     let name: String
+    let abilities: [AbilityList]
+    let types: [TypeElement]
+}
+
+// MARK: - AbilityList
+struct AbilityList: Codable {
+    let ability: Ability
+//    Crash case:
+//    let isHidden: Bool
+    let slot: Int
+}
+
+// MARK: - Ability
+struct Ability: Codable {
+    let name: String
+    let url: String
+}
+
+// MARK: - TypeElement
+struct TypeElement: Codable {
+    let slot: Int
+    let type: Ability
 }

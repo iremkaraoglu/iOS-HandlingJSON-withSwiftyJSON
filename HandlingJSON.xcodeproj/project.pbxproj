@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		30DA043727943AEF008EB92B /* HandlingJSON */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HandlingJSON; sourceTree = BUILT_PRODUCTS_DIR; };
-		30DA043A27943AEF008EB92B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		30DA043A27943AEF008EB92B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
