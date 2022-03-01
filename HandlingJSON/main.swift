@@ -15,7 +15,6 @@ struct PokemonManager {
     let charmanderURL = "https://pokeapi.co/api/v2/pokemon/charmander"
     let group = DispatchGroup()
     
-    
     func fetchData() {
         performRequest(urlsString: charmanderURL)
         group.wait()
@@ -37,9 +36,9 @@ struct PokemonManager {
                     // Call functions with JSONDecoder
                     print("Outputs with JSONDecoder")
                     let charmander = parseJSON(pokemonData: safeData)!
-                    print("Name: \(charmander.name)")
-                    print("Ability: \(charmander.abilities)")
-                    print("Type: \(charmander.types)")
+                    getName(data: charmander)
+                    getAbilities(data: charmander)
+                    getType(data: charmander)
                     
                     // Call functions with SwiftyJSON
                     print("Outputs with SwiftyJSON")
@@ -49,12 +48,11 @@ struct PokemonManager {
                 }
                 
                 group.leave()
-                
-                
             }
+            
             task.resume()
             
-        }else{
+        } else{
             group.leave()
             
         }

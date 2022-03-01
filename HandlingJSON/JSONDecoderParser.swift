@@ -42,3 +42,17 @@ func parseJSON(pokemonData: Data) -> Charmander? {
     }
     return nil
 }
+
+func getName(data: Charmander) {
+    print("Name: \(data.name)")
+}
+
+func getAbilities(data: Charmander) {
+    data.abilities.forEach {
+        print("Ability: \($0.ability.name)")}
+}
+
+func getType(data: Charmander) {
+    data.types.forEach {
+        print("Type: \($0.type.name)")}
+}
