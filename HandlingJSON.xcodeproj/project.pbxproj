@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		302CA0F127CE1F5900249486 /* swiftyJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302CA0F027CE1F5900249486 /* swiftyJSONParser.swift */; };
+		302CA0F327CE1F6D00249486 /* JSONDecoderParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302CA0F227CE1F6D00249486 /* JSONDecoderParser.swift */; };
 		304A1D1427B8377000068154 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 304A1D1327B8377000068154 /* SwiftyJSON */; };
 		30DA043B27943AEF008EB92B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DA043A27943AEF008EB92B /* main.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		302CA0F027CE1F5900249486 /* swiftyJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftyJSONParser.swift; sourceTree = "<group>"; };
+		302CA0F227CE1F6D00249486 /* JSONDecoderParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderParser.swift; sourceTree = "<group>"; };
 		30DA043727943AEF008EB92B /* HandlingJSON */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HandlingJSON; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DA043A27943AEF008EB92B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
@@ -60,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				30DA043A27943AEF008EB92B /* main.swift */,
+				302CA0F027CE1F5900249486 /* swiftyJSONParser.swift */,
+				302CA0F227CE1F6D00249486 /* JSONDecoderParser.swift */,
 			);
 			path = HandlingJSON;
 			sourceTree = "<group>";
@@ -129,6 +135,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				30DA043B27943AEF008EB92B /* main.swift in Sources */,
+				302CA0F127CE1F5900249486 /* swiftyJSONParser.swift in Sources */,
+				302CA0F327CE1F6D00249486 /* JSONDecoderParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +264,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UJDGTP9Q95;
 				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -267,6 +276,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UJDGTP9Q95;
 				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
