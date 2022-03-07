@@ -10,25 +10,28 @@ import SwiftyJSON
 
 // Get name of the Pokemon
 func getName(data: Data) {
-    let json = try! JSON(data: data)
-    let name = json["name"].string ?? "N/A"
-    print("Name: \(name)")
+    if let json = try? JSON(data: data) {
+        let name = json["name"].string ?? "N/A"
+        print("Name: \(name)")
+    }
 }
 
 // Get abilities of the Pokemon
 func getAbilities(data: Data) {
-    let json = try! JSON(data: data)
-    for (_, abilities) in json["abilities"] {
-        let ability = abilities["ability"]["name"].string ?? "N/A"
-        print("Ability: \(ability)")
+    if let json = try? JSON(data: data) {
+        for (_, abilities) in json["abilities"] {
+            let ability = abilities["ability"]["name"].string ?? "N/A"
+            print("Ability: \(ability)")
+        }
     }
 }
 
 // Get type of the Pokemon
 func getType(data: Data) {
-    let json = try! JSON(data: data)
-    for (_, types) in json["types"] {
-        let type = types["type"]["name"].string ?? "N/A"
-        print("Type: \(type)")
+    if let json = try? JSON(data: data) {
+        for (_, types) in json["types"] {
+            let type = types["type"]["name"].string ?? "N/A"
+            print("Type: \(type)")
+        }
     }
 }
