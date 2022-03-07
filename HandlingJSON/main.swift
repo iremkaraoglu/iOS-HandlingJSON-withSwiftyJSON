@@ -33,15 +33,6 @@ struct PokemonManager {
                 }
                 
                 if let safeData = data {
-                    // Call functions with JSONDecoder
-                    print("Outputs with JSONDecoder")
-                    let charmander = parseJSON(pokemonData: safeData)!
-                    getName(data: charmander)
-                    getAbilities(data: charmander)
-                    getType(data: charmander)
-                    
-                    // Call functions with SwiftyJSON
-                    print("Outputs with SwiftyJSON")
                     getName(data: safeData)
                     getAbilities(data: safeData)
                     getType(data: safeData)
